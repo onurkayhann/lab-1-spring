@@ -1,4 +1,17 @@
 package com.onurkayhann.lab_1_spring.model
 
-class BJJFighter {
+import jakarta.persistence.*
+
+@Entity
+@Table(name = "fighter")
+class BJJFighter(
+    val name: String = "",
+    val age: Int = 0,
+    val degree: String = "",
+    val isCompeting: Boolean = true,
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long? = null
+) {
 }
