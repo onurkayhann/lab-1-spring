@@ -48,7 +48,7 @@ class BJJFighterController(
 
     @DeleteMapping
     fun deleteFighterById(@RequestParam("id") id: Long): ResponseEntity<String> {
-        val fighter = bjjFighterRepository.deleteById(id)
+        bjjFighterRepository.deleteById(id)
 
         return ResponseEntity.status(204).body("Fighter successfully deleted!")
     }
