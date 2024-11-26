@@ -1,4 +1,9 @@
 package com.onurkayhann.lab_1_spring.repository
 
-interface BJJFighterRepository {
+import com.onurkayhann.lab_1_spring.model.BJJFighter
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface BJJFighterRepository: JpaRepository<BJJFighter, Long> {
 }
