@@ -5,11 +5,11 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "fighters")
 class BJJFighter(
-    val name: String = "",
-    val age: Int = 0,
-    val degree: String = "",
-    val club: String = "",
-    val isCompeting: Boolean = true,
+    var name: String = "",
+    var age: Int = 0,
+    var degree: String = "",
+    var club: String = "",
+    var isCompeting: Boolean = true,
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

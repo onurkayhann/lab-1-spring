@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -51,6 +52,26 @@ class BJJFighterController(
         bjjFighterRepository.deleteById(id)
 
         return ResponseEntity.status(204).body("Fighter successfully deleted!")
+    }
+
+    @PutMapping
+    fun editFighterById(@RequestParam("id") id: Long, @RequestBody bjjFighter: BJJFighter): ResponseEntity<String> {
+        var bjjFighterOptional = bjjFighterRepository.findById(id)
+
+        if (bjjFighterOptional.isPresent) {
+            val foundFighter = bjjFighterOptional.get()
+
+            foundFighter.name = bjjFighter.name
+            foundFighter.age = bjjFighter.age
+            foundFighter.club = bjjFighter.club
+            foundFighter.degree = bjjFighter.degree
+            foundFighter.isCompeting = bjjFighter.isCompeting
+
+            bjjFighterRepository.save(foundFighter)
+
+            return ResponseEntity.status(201).body("Fighter Updated")
+        }
+        return ResponseEntity.notFound().build()
     }
 
 }
