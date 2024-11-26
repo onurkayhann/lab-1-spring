@@ -11,7 +11,7 @@ class BJJFighterController(
     private val bjjFighterRepository: BJJFighterRepository
 ) {
 
-    @PostMapping
+    @PostMapping("/fighter")
     fun addNewFighter(@RequestBody bjjFighter: BJJFighter): BJJFighter {
 
         return bjjFighterRepository.save(bjjFighter)

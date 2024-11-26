@@ -3,7 +3,7 @@ package com.onurkayhann.lab_1_spring.model
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "fighter")
+@Table(name = "BJJFighter")
 class BJJFighter(
     val name: String = "",
     val age: Int = 0,
